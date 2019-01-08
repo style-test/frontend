@@ -41,7 +41,7 @@
       "yarn tslint",
       "git add"
     ],
-    "*.{json,css,md}": [
+    "*.{json,yaml,css,md}": [
       "yarn prettier",
       "git add"
     ]
