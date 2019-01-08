@@ -36,6 +36,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
+      "CI=true yarn test",
       "yarn prettier",
       "yarn tslint",
       "git add"
