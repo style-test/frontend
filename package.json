@@ -26,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write",
     "tslint": "tslint --fix"
@@ -38,13 +38,13 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "CI=true yarn test",
+    "**/*.{js,ts,tsx}": [
+      "yarn test src/**/?(*.)(spec|test).{js,ts}",
       "yarn prettier",
       "yarn tslint",
       "git add"
     ],
-    "*.{json,yaml,css,md}": [
+    "**/*.{json,yaml,css,md}": [
       "yarn prettier",
       "git add"
     ]
