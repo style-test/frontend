@@ -14,7 +14,8 @@
       {
         "esSpecCompliant": true
       }
-    ]
+    ],
+    "no-submodule-imports": [true, "redux-saga"]
   },
   "rulesDirectory": []
 }
