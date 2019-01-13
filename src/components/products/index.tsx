@@ -1,13 +1,27 @@
 import React from 'react';
 
 import Wrapper from '../../styled/Wrapper';
+import Styled from './styled';
+
+const ProductItem = () => (
+  <Styled.ProductItem>
+    <img src="https://source.unsplash.com/random/600x600" alt="product" />
+  </Styled.ProductItem>
+);
 
 class Products extends React.Component {
   public render() {
     return (
-      <Wrapper.BlockWrapper width="50rem" margin="0 auto">
-        <h1>wow</h1>
-      </Wrapper.BlockWrapper>
+      <Styled.ProductWrapper>
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+      </Styled.ProductWrapper>
     );
   }
 }
