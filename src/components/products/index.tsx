@@ -21,7 +21,7 @@ interface IProductsProps {
   products: IProductItem[];
 }
 
-const ProductItem = ({ item }: { item: IProductItem }) => (
+const ProductItem = React.memo(({ item }: { item: IProductItem }) => (
   <a rel="noopener noreferrer" target="_blank" href={item.url}>
     <Styled.ProductItem img={item.image_url}>
       <Styled.InnerWrapper>
@@ -34,12 +34,17 @@ const ProductItem = ({ item }: { item: IProductItem }) => (
       </Styled.InnerWrapper>
     </Styled.ProductItem>
   </a>
-);
+));
 
 class Products extends React.Component<IProductsProps, any> {
   public componentDidMount() {
     const { fetch } = this.props;
     fetch();
+  }
+
+  public shouldComponentUpdate(nextProps: any) {
+    const { products } = this.props;
+    return nextProps.products !== products;
   }
 
   public render() {
