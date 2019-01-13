@@ -1,10 +1,9 @@
 import styled from '../../styled/StyledComponents';
 import Wrapper from '../../styled/Wrapper';
 
-const ProductItem = styled(Wrapper.FlexWrapper)`
+const ProductItem = styled(Wrapper.BlockWrapper)`
   width: 19rem;
-  height: 19rem;
-  padding: 0.25rem;
+  padding: 1px;
 
   img {
     width: 100%;
