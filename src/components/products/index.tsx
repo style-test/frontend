@@ -22,10 +22,18 @@ interface IProductsProps {
 }
 
 const ProductItem = ({ item }: { item: IProductItem }) => (
-  <Styled.ProductItem>
-    <h1>{item.shop_ko}</h1>
-    <img src={item.image_url} alt="product" />
-  </Styled.ProductItem>
+  <a rel="noopener noreferrer" target="_blank" href={item.url}>
+    <Styled.ProductItem img={item.image_url}>
+      <Styled.InnerWrapper>
+        <h2>
+          {item.shop_ko} | {item.shop_en}
+        </h2>
+        <p>{`₩${item.price
+          .toString()
+          .slice(0, -3)},${item.price.toString().slice(-3)}`}</p>
+      </Styled.InnerWrapper>
+    </Styled.ProductItem>
+  </a>
 );
 
 class Products extends React.Component<IProductsProps, any> {
