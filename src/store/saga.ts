@@ -4,7 +4,7 @@ import * as actions from './actions';
 import { FETCH_PRODUCTS } from './types';
 
 const axiosInstance = axios.create({
-  baseURL: 'localhost:1323',
+  baseURL: 'http://localhost:1323',
   headers: {
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest',
@@ -17,7 +17,7 @@ function* fetchProductsSaga() {
     const { data } = yield axiosInstance.get('/products');
     yield put(actions.fetchProductsFulfilled(data));
   } catch (error) {
-    yield put(actions.fetchProductsRejected(error.response.message));
+    yield put(actions.fetchProductsRejected(error.response));
   }
 }
 
