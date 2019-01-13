@@ -30,7 +30,7 @@ const InnerWrapper = styled(Wrapper.BlockWrapper)`
 
 const ProductWrapper = styled(Wrapper.FlexWrapper)`
   max-width: 60rem;
-  margin: 0 auto;
+  margin: 7rem auto;
   flex-wrap: wrap;
   justify-content: center;
 `;
