@@ -6,10 +6,10 @@ const LayoutDiv = styled('div')<{
   margin?: string;
   padding?: string;
 }>`
-  width: ${props => (props.width ? props.width : 'inherit')};
-  height: ${props => (props.height ? props.height : 'inherit')};
-  margin: ${props => (props.margin ? props.margin : 'inherit')};
-  padding: ${props => (props.padding ? props.padding : 'inherit')};
+  width: ${props => (props.width ? props.width : 'unset')};
+  height: ${props => (props.height ? props.height : 'unset')};
+  margin: ${props => (props.margin ? props.margin : 'unset')};
+  padding: ${props => (props.padding ? props.padding : 'unset')};
 `;
 
 const BlockWrapper = styled(LayoutDiv)`
