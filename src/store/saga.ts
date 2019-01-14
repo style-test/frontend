@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { put, spawn, takeEvery } from 'redux-saga/effects';
+import { all, put, spawn, takeEvery } from 'redux-saga/effects';
 import * as actions from './actions';
-import { FETCH_PRODUCTS } from './types';
+import { FETCH_PRODUCTS, FETCH_RANKINGS } from './types';
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:1323',
@@ -21,10 +21,22 @@ function* fetchProductsSaga() {
   }
 }
 
-function* watchProduct() {
-  yield takeEvery(FETCH_PRODUCTS, fetchProductsSaga);
+function* fetchRankingsSaga() {
+  try {
+    const { data } = yield axiosInstance.get('/rankings');
+    yield put(actions.fetchRankingsFulfilled(data));
+  } catch (error) {
+    yield put(actions.fetchRankingsRejected(error.response));
+  }
+}
+
+function* watchAll() {
+  yield all([
+    takeEvery(FETCH_PRODUCTS, fetchProductsSaga),
+    takeEvery(FETCH_RANKINGS, fetchRankingsSaga),
+  ]);
 }
 
 export default function* root() {
-  yield spawn(watchProduct);
+  yield spawn(watchAll);
 }

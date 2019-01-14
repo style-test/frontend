@@ -1,7 +1,13 @@
-import { FETCH_PRODUCTS_FULFILLED, FETCH_PRODUCTS_REJECTED } from './types';
+import {
+  FETCH_PRODUCTS_FULFILLED,
+  FETCH_PRODUCTS_REJECTED,
+  FETCH_RANKINGS_FULFILLED,
+  FETCH_RANKINGS_REJECTED,
+} from './types';
 
 const INITIAL_STATE = {
   products: [],
+  rankings: [],
 };
 
 export default (
@@ -15,6 +21,17 @@ export default (
         products: payload,
       };
     case FETCH_PRODUCTS_REJECTED:
+      return {
+        ...state,
+        error,
+        showError: true,
+      };
+    case FETCH_RANKINGS_FULFILLED:
+      return {
+        ...state,
+        rankings: payload,
+      };
+    case FETCH_RANKINGS_REJECTED:
       return {
         ...state,
         error,
