@@ -12,6 +12,9 @@ class App extends Component {
           <Header />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
+              <Route path="/rankings">
+                <Lazy.Rankings />
+              </Route>
               <Route path="/products">
                 <Lazy.Products />
               </Route>
